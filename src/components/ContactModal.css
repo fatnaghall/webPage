@@ -1,0 +1,10 @@
+.cmodal{position:fixed; inset:0; background:rgba(4,6,19,.7); display:grid; place-items:center; z-index:110}
+.cmodal__panel{
+  width:min(520px,92vw); background:#0d1230; border:1px solid #283071;
+  border-radius:18px; padding:22px; color:#e8ecff; box-shadow:var(--shadow)
+}
+.cmodal__row{display:flex; align-items:center; gap:12px; margin:10px 0}
+.cmodal__row a{color:#cbd5ff; text-decoration:none}
+.cmodal__row a:hover{text-decoration:underline}
+.ico{width:28px; display:inline-grid; place-items:center}
+.cmodal__actions{margin-top:10px; display:flex; justify-content:flex-end}

@@ -1,0 +1,11 @@
+.overlay{
+  position:fixed; inset:0; background:rgba(3,7,20,.7);
+  display:grid; place-items:center; z-index:100;
+}
+.overlay__panel{
+  width:min(720px, 92vw);
+  background:linear-gradient(180deg,#0b1546, #0a1138 60%, #090f2f);
+  border:1px solid #1b2a7e; border-radius:20px; padding:28px;
+  color:#dde4ff; box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.overlay__text{margin:12px 0 18px; color:#c8d1ff}
