@@ -1,3 +1,55 @@
-.sec__title{font-size:28px}
-.sec__desc{margin:6px 0 14px}
-.sec__open{border-color:#2a335a}
+/* ===== Section.css (كامل) ===== */
+.sec__title{
+  font-size: 28px;
+  font-weight: 800;
+  color: #eaf0ff;
+}
+
+.sec__desc{
+  margin: 6px 0 14px;
+  color: #cbd5ff;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* زر Open details بشكل كبسولة ناعمة */
+.sec__open.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+  border-radius: 9999px;                        /* كبسولة ناعمة جداً */
+  background: linear-gradient(180deg, #1a45ff, #1538cc);
+  color: #eaf0ff;
+
+  border: 1px solid rgba(42, 51, 90, .65);
+  box-shadow:
+    0 10px 24px rgba(26,69,255,.22),
+    0 2px 8px rgba(0,0,0,.12);
+
+  transition:
+    transform .15s ease,
+    box-shadow .2s ease,
+    background-color .2s ease,
+    opacity .2s ease;
+}
+
+.sec__open.btn:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 36px rgba(26,69,255,.28),
+    0 4px 12px rgba(0,0,0,.14);
+  background: linear-gradient(180deg, #2a56ff, #1a45ff);
+}
+
+/* موبايل */
+@media (max-width: 640px){
+  .sec__title{ font-size: 22px; }
+  .sec__desc{ font-size: 14px; }
+  .sec__open.btn{
+    padding: 8px 14px;
+    border-radius: 9999px;
+    font-size: 14px;
+  }
+}
