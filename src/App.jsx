@@ -7,6 +7,8 @@ import BlueOverlay from './components/BlueOverlay.jsx'
 import ContactModal from './components/ContactModal.jsx'
 import Section from './components/Section.jsx'
 import Footer from './components/Footer.jsx'
+import './styles/mobile-fixes.css';
+
 
 export default function App(){
   const aboutRef = useRef(null)

@@ -1,0 +1,32 @@
+/* == Mobile-only fixes without touching your current design == */
+@media (max-width: 640px) {
+  /* تقليل مسافة الهيرو أسفل الـnavbar اللاصق */
+  .hero { padding-top: 24px !important; }
+
+  /* تصغير العنوان الكبير في الهيرو */
+  .hero h1, .hero .hero__title {
+    font-size: clamp(28px, 8vw, 44px) !important;
+    line-height: 1.10 !important;
+  }
+
+  /* إخفاء شارة UNIVERSITY SCIENCE CLUB على الهاتف (تتداخل مع الروابط) */
+  .hero .hero__badge, .badge, .tag {
+    display: none !important;
+  }
+
+  /* شبكة البطاقات: عمود واحد على الهاتف */
+  .cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* حواف وقياسات البطاقات */
+  .card { padding: 16px !important; border-radius: 16px !important; }
+  .card h3, .card .card__title { font-size: 18px !important; }
+  .card p, .card .card__text { font-size: 14px !important; }
+
+  /* أزرار النافبار أصغر ومساحة أقل */
+  .nav__inner { height: 56px !important; padding: 0 12px !important; }
+  .nav__links { gap: 8px !important; flex-wrap: wrap !important; }
+  .nav__link { padding: 6px 10px !important; font-size: 14px !important; }
+}

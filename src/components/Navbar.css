@@ -1,10 +1,9 @@
-
+/* ===== Navbar.css (كامل) ===== */
 .nav {
   position: sticky;
   top: 0;
   z-index: 50;
-background: rgba(7, 10, 26, 0.6);
-
+  background:rgba(7,10,26,0.6);
 }
 
 .nav__inner {
@@ -12,13 +11,16 @@ background: rgba(7, 10, 26, 0.6);
   align-items: center;
   justify-content: space-between;
   height: 68px;
+  padding: 0 24px;
 }
 
 .nav__brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: .4px;
+  color: #e6edff;
 }
 
 .logo {
@@ -43,20 +45,45 @@ background: rgba(7, 10, 26, 0.6);
   padding: 8px 14px;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease;
+  font-size: 15px;
+  transition: transform .15s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
 }
 
 .nav__link:hover {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,.06);
+  border-color: #3a4578;
+  color: white;
 }
 
-.nav__contact {
-  background: #0f1a4b;
-  border: 1px solid #2a335a;
-  color: #dfe5ff;
+/* زر Contact يبدو أوضح قليلاً */
+.nav__link--primary {
+  background: rgba(88,119,255,.12);
+  border-color: rgba(88,119,255,.35);
 }
 
-.nav__contact:hover {
-  background: #13215f;
+/* ========== Responsive (mobile) ========== */
+@media (max-width: 640px) {
+  .nav__inner {
+    height: 56px;
+    padding: 0 12px;
+  }
+  .nav__brand {
+    gap: 8px;
+    font-size: 14px;
+  }
+  .logo {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+  }
+  .nav__links {
+    gap: 8px;
+    flex-wrap: wrap; /* يسمح للروابط أن تنزل سطر ثاني إذا ضاقت المساحة */
+  }
+  .nav__link {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+  }
 }

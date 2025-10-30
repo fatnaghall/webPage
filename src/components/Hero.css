@@ -1,6 +1,56 @@
-.hero{padding:64px 0 30px}
-.hero__title{
-  font-size:48px; line-height:1.05; margin-top:18px;
-  letter-spacing:.2px;
+/* ===== Hero.css (كامل) ===== */
+.hero {
+  position: relative;
+  padding: 72px 0 24px; /* مسافة جيدة أسفل النافبار */
+  color: #eaf0ff;
 }
-.hero__subtitle{margin-top:14px; font-size:18px}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(207, 216, 255, 1);;
+  color: #cfd8ff;
+  letter-spacing: .5px;
+}
+
+.hero__title {
+  margin-top: 18px;
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 1.05;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.hero__subtitle {
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #cbd5ff;
+  max-width: 760px;
+}
+
+/* ========== Responsive (mobile) ========== */
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 24px;         /* أقل بكثير على الهاتف */
+  }
+  .hero__badge {
+    margin-top: 6px;
+    transform: scale(.95);
+  }
+  .hero__title {
+    font-size: clamp(28px, 8vw, 44px);
+    margin-top: 10px;
+  }
+  .hero__subtitle {
+    font-size: 14px;
+    margin-top: 8px;
+    max-width: 100%;
+  }
+  /* إن أردتِ إخفاء الشارة على الهاتف نهائياً، أزيلي التعليق التالي */
+  /* .hero__badge { display: none; } */
+}

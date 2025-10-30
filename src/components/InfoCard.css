@@ -1,12 +1,71 @@
-.info{
-  width:100%; text-align:left; display:flex; gap:16px; align-items:flex-start;
-  padding:22px; border-radius:18px; background:var(--card); color:#111; border:none;
-  box-shadow:var(--shadow); cursor:pointer;
+/* ===== InfoCard.css (كامل) ===== */
+
+/* شبكة البطاقات في قسم البطاقات الثلاثة (Purpose / Introduction / Advice) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 26px;
 }
-.info--wide{padding:26px}
-.info__icon{
-  width:38px; height:38px; border-radius:999px; display:grid; place-items:center;
-  background:#e8efff; font-size:20px; flex:0 0 38px;
+
+.card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 22px;
+  padding: 22px;
+  color: #eaf0ff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
-.info__title{color:#0a0f2a; margin:2px 0 6px; font-size:22px}
-.info__desc{color:#3a4663}
+
+.card--wide {
+  grid-column: 1 / -1;  /* البطاقة الطويلة (Advice) */
+}
+
+.card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(173, 195, 255, 0.18);
+  border: 1px solid rgba(173,195,255,0.3);
+}
+
+.card__title {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.card__text {
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #d7e1ff;
+}
+
+/* ========== Responsive (mobile) ========== */
+@media (max-width: 640px) {
+  .cards-grid {
+    grid-template-columns: 1fr;   /* عمود واحد */
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .card__icon {
+    width: 40px;
+    height: 40px;
+  }
+  .card__title {
+    font-size: 18px;              /* تصغير العنوان حتى لا يلتف */
+    margin-top: 6px;
+  }
+  .card__text {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
