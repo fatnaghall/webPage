@@ -19,25 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      # تثبيت الحزم داخل مجلد vite-project (بدون ci)
-      - name: Install deps
-        working-directory: vite-project
-        run: npm install
-
-      - name: Build
-        working-directory: vite-project
-        run: npm run build
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          cache: 'npm'
+      - run: npm install
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: vite-project/dist
-
+          path: ./dist
   deploy:
     needs: build
     runs-on: ubuntu-latest
