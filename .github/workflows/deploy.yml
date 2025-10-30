@@ -19,15 +19,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm ci
-      - run: npm run build
+          cache-dependency-path: vite-project/package-lock.json
+
+      # كل الأوامر التالية ستعمل داخل مجلد vite-project
+      - name: Install deps
+        working-directory: vite-project
+        run: npm ci
+
+      - name: Build
+        working-directory: vite-project
+        run: npm run build
+
+      # ارفع مجلد dist الموجود داخل vite-project
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: vite-project/dist
 
   deploy:
     needs: build
