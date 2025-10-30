@@ -23,20 +23,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-          cache-dependency-path: vite-project/package-lock.json
 
-      # كل الأوامر التالية ستعمل داخل مجلد vite-project
+      # تثبيت الحزم داخل مجلد vite-project (بدون ci)
       - name: Install deps
         working-directory: vite-project
-        run: npm ci
+        run: npm install
 
       - name: Build
         working-directory: vite-project
         run: npm run build
 
-      # ارفع مجلد dist الموجود داخل vite-project
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: vite-project/dist
 
