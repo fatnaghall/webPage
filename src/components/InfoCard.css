@@ -1,5 +1,6 @@
-/* ===== InfoCard.css (كامل) ===== */
-.info{
+/* ===== InfoCard.css (كامل بعد التعديل الجمالي) ===== */
+
+.info {
   width: 100%;
   text-align: left;
   display: flex;
@@ -7,77 +8,90 @@
   align-items: flex-start;
 
   padding: 24px;
-  border-radius: 28px;               /* حواف ناعمة وواضحة */
+  border-radius: 28px;               /* حواف ناعمة */
   background: var(--card, #ffffff);
   color: #111;
 
-  /* حدود خفيفة وظل ناعم */
-  border: 1px solid rgba(17,24,39,.06);
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.08),
-    0 2px 8px rgba(0,0,0,.06);
+  /* ظل خفيف وجميل */
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 
   cursor: pointer;
-  border: none;                       /* نتخلّص من الحدود القاسية القديمة */
-  transition:
-    transform .15s ease,
-    box-shadow .20s ease,
-    background-color .20s ease,
-    border-color .20s ease;
+  transition: all 0.2s ease;
 }
 
-.info:hover{
-  transform: translateY(-2px);
-  box-shadow:
-    0 16px 40px rgba(0,0,0,.10),
-    0 3px 10px rgba(0,0,0,.08);
-  background: #ffffff;
+/* Hover effect */
+.info:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-.info--wide{
-  padding: 28px;                      /* البطاقة العريضة (Advice) */
-  border-radius: 30px;                /* حواف ألين قليلاً */
+/* بطاقة عريضة (Advice) */
+.info--wide {
+  padding: 28px;
+  border-radius: 30px;
 }
 
-.info__icon{
+/* ===== تباعد بين البطاقات ===== */
+.info + .info {
+  margin-top: 28px;   /* هذه تضيف مسافة جميلة بين كل بطاقة */
+}
+
+.info--wide {
+  margin-top: 32px;   /* مسافة إضافية قبل البطاقة العريضة الأخيرة */
+}
+
+/* ===== العناصر داخل البطاقة ===== */
+.info__icon {
   width: 44px;
   height: 44px;
-  border-radius: 999px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(173,195,255,.18);
-  border: 1px solid rgba(173,195,255,.30);
+  background: rgba(173, 195, 255, 0.18);
+  border: 1px solid rgba(173, 195, 255, 0.3);
   flex: 0 0 44px;
   font-size: 20px;
 }
 
-.info__title{
+.info__title {
   color: #0a0f2a;
   margin: 2px 0 6px;
   font-size: 22px;
   font-weight: 800;
-  letter-spacing: .2px;
+  letter-spacing: 0.2px;
 }
 
-.info__desc{
+.info__desc {
   color: #3a4663;
   font-size: 15.5px;
   line-height: 1.6;
 }
 
 /* ===== موبايل ===== */
-@media (max-width: 640px){
-  .info{
+@media (max-width: 640px) {
+  .info {
     padding: 18px;
     border-radius: 22px;
   }
-  .info--wide{
+  .info--wide {
     padding: 20px;
     border-radius: 24px;
+    margin-top: 20px; /* تقليل المسافة في الموبايل حتى لا يصبح الفراغ كبير */
   }
-  .info__icon{
-    width: 40px; height: 40px;
+  .info + .info {
+    margin-top: 18px; /* فراغ معتدل في الهاتف */
   }
-  .info__title{ font-size: 18px; margin: 2px 0 4px; }
-  .info__desc{ font-size: 14px; line-height: 1.55; }
+  .info__icon {
+    width: 40px;
+    height: 40px;
+  }
+  .info__title {
+    font-size: 18px;
+    margin: 2px 0 4px;
+  }
+  .info__desc {
+    font-size: 14px;
+    line-height: 1.55;
+  }
 }
