@@ -1,61 +1,123 @@
-/* خلفية ووعاء النافذة */
-.overlay {
+/* خلفية ثابتة بدون backdrop-filter */
+.cm-backdrop{
   position: fixed;
   inset: 0;
-  z-index: 80;
+  background: rgba(10,14,25,0.55); /* طبقة شفافة لطيفة */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000; /* فوق أي شيء آخر */
 }
 
-.overlay__backdrop {
-  position: absolute;
-  inset: 0;
+/* صندوق المودال */
+.cm-dialog{
+  width: min(900px, 92vw);
+  max-height: min(80vh, 900px);
+  overflow: hidden;             /* الرأس/الفوتر ثابتين */
+  border-radius: 18px;
+  background: #0e1525;          /* داكن نظيف */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #e8eefc;
+  display: flex;
+  flex-direction: column;
 }
 
-.overlay__panel {
-  position: relative;
-  z-index: 1;
-  max-width: 1100px;
-  margin: 72px auto;
-  background: #0f172a;            /* Slate-900 */
-  border: 1px solid rgba(148,163,184,.15);
-  border-radius: 22px;
-  box-shadow: 0 30px 80px rgba(2,6,23,.45);
-  overflow: hidden;
+/* رأس المودال */
+.cm-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-
-.overlay__header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 22px 28px;
-  border-bottom: 1px solid rgba(148,163,184,.12);
-}
-
-.overlay__title {
+.cm-header h3{
   margin: 0;
-  font-size: clamp(1.2rem, 1.2rem + 1vw, 1.8rem);
-  color: #e2e8f0;                 /* Slate-200 */
-  font-weight: 800;
-  letter-spacing: .3px;
+  font-size: clamp(18px, 2.2vw, 24px);
+  letter-spacing: 0.3px;
 }
-
-.overlay__close {
-  background: transparent; border: 0; color: #94a3b8;
-  font-size: 28px; line-height: 1; cursor: pointer;
+.cm-x{
+  background: transparent;
+  border: none;
+  color: #a9b7d0;
+  font-size: 20px;
+  cursor: pointer;
 }
-.overlay__close:hover { color: #e2e8f0; }
+.cm-x:hover{ color: #fff; }
 
-.overlay__content {
-  max-height: min(70vh, 720px);
+/* جسم المودال قابل للتمرير */
+.cm-body{
+  padding: 20px;
   overflow: auto;
-  padding: 24px 28px;
+  scroll-behavior: smooth;
+}
+.cm-lead{
+  margin: 0 0 12px;
+  color: #cfd8ea;
+  line-height: 1.6;
+  font-size: clamp(14px, 1.6vw, 16px);
 }
 
-.overlay__footer {
-  display: flex; justify-content: flex-end; gap: 12px;
-  padding: 16px 20px;
-  border-top: 1px solid rgba(148,163,184,.12);
+/* بطاقات تواصل */
+.cm-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 12px 0 6px;
+}
+.cm-card{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 14px;
+}
+.cm-card-title{
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #dfe8ff;
+}
+.cm-link{
+  color: #8fb7ff;
+  text-decoration: none;
+}
+.cm-link:hover{ text-decoration: underline; }
+
+/* ملاحظة سفلية */
+.cm-note{
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+  color: #b6c3dc;
+  opacity: .9;
 }
 
-.btn {
-  background: #1d4ed8; color: #fff; border: 0; border-radius: 14px;
-  padding: 10px 18px; font-weight: 700; cursor: pointer;
+/* فوتر مع زر إغلاق دائم الظهور */
+.cm-footer{
+  padding: 14px 20px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
-.btn:hover { filter: brightness(1.08); }
+.cm-close-btn{
+  background: #2d62ff;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.cm-close-btn:hover{
+  filter: brightness(1.08);
+}
+
+/* موبايل */
+@media (max-width: 720px){
+  .cm-dialog{
+    width: 96vw;
+    max-height: 86vh;
+  }
+  .cm-grid{
+    grid-template-columns: 1fr;
+  }
+}

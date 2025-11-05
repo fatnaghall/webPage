@@ -1,33 +1,77 @@
-import React, { useEffect } from 'react'
-import './ContactModal.css'
+import React, { useEffect, useCallback } from "react";
+import "./ContactModal.css";
 
-export default function ContactModal({open, onClose}){
-  useEffect(()=>{
-    document.body.style.overflow = open ? 'hidden' : ''
-    return ()=>{ document.body.style.overflow='' }
-  },[open])
+export default function ContactModal({ open, onClose }) {
+  const handleKey = useCallback((e) => {
+    if (e.key === "Escape") onClose?.();
+  }, [onClose]);
 
-  if(!open) return null
+  useEffect(() => {
+    if (!open) return;
+    // اقفل تمرير الصفحة أثناء فتح المودال
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = overflow || "";
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, [open, handleKey]);
+
+  if (!open) return null;
+
+  const stop = (e) => e.stopPropagation();
+
   return (
-    <div className="cmodal" onClick={onClose}>
-      <div className="cmodal__panel" onClick={e=>e.stopPropagation()}>
-        <h3>Contact</h3>
-        <div className="cmodal__row">
-          <span className="ico">✉️</span> 
-          <a href="mailto:sienceclub@gmail.com"> email: scienceclub@gmail.com</a>
+    <div className="cm-backdrop" onClick={onClose} role="presentation">
+      <div
+        className="cm-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cm-title"
+        onClick={stop}
+      >
+        <div className="cm-header">
+          <h3 id="cm-title">Contact</h3>
+          <button className="cm-x" aria-label="Close" onClick={onClose}>✕</button>
         </div>
-        <div className="cmodal__row">
-          <span className="ico">📘</span>
-          <a href="#" title="Science Club Algeria on Facebook">Facebook: science club Algeria</a>
+
+        <div className="cm-body">
+          {/* عدّلي النصوص أدناه كما تحبين */}
+          <p className="cm-lead">
+            Have a question about <strong>QUARKS CLUB</strong> or want to collaborate?
+          </p>
+
+          <div className="cm-grid">
+            <div className="cm-card">
+              <div className="cm-card-title">Email</div>
+              <a className="cm-link" href="mailto:your.email@example.com">
+                quarks1234@gmail.com
+              </a>
+            </div>
+
+            <div className="cm-card">
+              <div className="cm-card-title">Instagram</div>
+              <a className="cm-link" href="#" target="_blank" rel="noreferrer">
+                @quarks.club
+              </a>
+            </div>
+
+            <div className="cm-card">
+              <div className="cm-card-title">Location</div>
+              <div>ENSTA — CS Department</div>
+            </div>
+          </div>
+
+          <p className="cm-note">
+           we going to help you any time!
+          </p>
         </div>
-        <div className="cmodal__row">
-          <span className="ico">📸</span>
-          <a href="#" title="ScienceClub on Instagram"> instagram: scienceclub</a>
-        </div>
-        <div className="cmodal__actions">
-          <button className="btn" onClick={onClose}>Close</button>
+
+        <div className="cm-footer">
+          <button className="cm-close-btn" onClick={onClose}>Close</button>
         </div>
       </div>
     </div>
-  )
+  );
 }
