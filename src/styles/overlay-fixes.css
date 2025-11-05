@@ -1,0 +1,49 @@
+/* ===== تنسيقات المحتوى الغني داخل المودال ===== */
+.section-subtitle{
+  margin: 12px 0 8px;
+  font-size: clamp(16px, 1.6vw, 20px);
+  color: #e6eeff;
+  font-weight: 800;
+}
+
+.prose .lead{
+  font-size: clamp(16px, 1.6vw, 19px);
+  color: #cbd9ff;
+  margin: 0 0 14px;
+}
+
+.badge{
+  display:inline-block;
+  background: #172b6c;
+  color:#dbe6ff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  margin-right: 10px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+ul.clean{ list-style: none; padding-left: 0; margin: 0; }
+li.item{
+  position: relative;
+  padding-left: 1.6em;
+  margin: 12px 0;
+  color:#b9c7e6;
+  line-height: 1.7;
+}
+li.item::before{
+  content:"•";
+  position:absolute; left:0; top:0;
+  color:#7ea1ff;
+}
+.sub{
+  color:#9fb1d9;
+  margin-left: calc(1.6em + 4px);
+  margin-top: 4px;
+}
+
+@media (max-width: 640px){
+  .badge{ padding: 5px 10px; }
+  li.item{ padding-left: 1.4em; }
+  .sub{ margin-left: calc(1.4em + 2px); }
+}

@@ -1,0 +1,45 @@
+/* تنسيقات القراءة داخل النافذة */
+.oc {
+  color: #cbd5e1;                  /* Slate-300 */
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+.oc p { margin: 0 0 12px; }
+
+.oc h4 {
+  margin: 18px 0 8px;
+  color: #e5e7eb;                  /* Gray-200 */
+  font-size: 1.1rem;
+  letter-spacing: .2px;
+}
+
+.oc ul {
+  margin: 6px 0 14px 1.2rem;
+  padding: 0;
+}
+
+.oc li { margin: 6px 0; }
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: .9rem;
+  background: rgba(99,102,241,.15); /* Indigo */
+  color: #e0e7ff;
+  border: 1px solid rgba(99,102,241,.35);
+  margin-right: 10px;
+}
+
+.muted { color: #94a3b8; font-style: italic; }
+
+/* فواصل لطيفة بين الفقرات */
+.oc .block {
+  background: rgba(2,6,23,.35);
+  border: 1px solid rgba(148,163,184,.12);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 10px 0 14px;
+}

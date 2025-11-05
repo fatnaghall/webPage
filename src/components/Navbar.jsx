@@ -7,7 +7,7 @@ export default function Navbar({onAbout,onActivities,onEvents,onContact}){
       <div className="container nav__inner">
         <div className="nav__brand">
           <span className="logo">✳</span>
-          <span>SCIENCE <b>CLUB</b></span>
+          <span>QUARKS <b>CLUB</b></span>
         </div>
         <nav className="nav__links">
           <button className="nav__link" onClick={onAbout}>About</button>

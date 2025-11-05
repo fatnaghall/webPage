@@ -1,19 +1,27 @@
-import React, { useEffect } from 'react'
+/* src/components/BlueOverlay.jsx */
+import React from 'react'
 import './BlueOverlay.css'
 
-export default function BlueOverlay({open, title, text, onClose}){
-  useEffect(()=>{
-    document.body.style.overflow = open ? 'hidden' : ''
-    return ()=>{ document.body.style.overflow='' }
-  },[open])
+export default function BlueOverlay({ open, title, onClose, children }) {
+  if (!open) return null
 
-  if(!open) return null
+  const stop = (e) => e.stopPropagation()
+
   return (
-    <div className="overlay" onClick={onClose}>
-      <div className="overlay__panel" onClick={e=>e.stopPropagation()}>
-        <h2>{title}</h2>
-        <p className="overlay__text">{text}</p>
-        <button className="btn" onClick={onClose}>Close</button>
+    <div className="overlay-backdrop" onClick={onClose} role="dialog" aria-modal="true">
+      <div className="overlay-card" onClick={stop}>
+        <div className="overlay-header">
+          <h3 className="overlay-title">{title}</h3>
+          <button className="overlay-x" aria-label="Close" onClick={onClose}>×</button>
+        </div>
+
+        <div className="overlay-body">
+          {children}
+        </div>
+
+        <div className="overlay-actions">
+          <button className="btn-primary" onClick={onClose}>Close</button>
+        </div>
       </div>
     </div>
   )

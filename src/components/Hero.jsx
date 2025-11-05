@@ -5,10 +5,10 @@ export default function Hero(){
   return (
     <section className="hero">
       <div className="container">
-        <div className="badge">UNIVERSITY SCIENCE CLUB</div>
+        <div className="badge">UNIVERSITY  COMPUTER SCIENCE CLUB</div>
         <h1 className="hero__title">Welcome, Future Scientists!</h1>
         <p className="hero__subtitle">
-          A community for students passionate about science and discovery.
+          A community for students passionate about computer science .
         </p>
       </div>
     </section>
