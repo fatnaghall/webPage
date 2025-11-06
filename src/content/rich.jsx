@@ -36,7 +36,7 @@ export const purpose = (
 export const introduction = (
   <>
     <Lead>
-      Welcome to <Em>QUARKS Club</Em> — a vibrant community at ENSTA for curious students who want to build, explore,
+      Welcome to <Em>QUARKS Club</Em> a vibrant community at ENSTA for curious students who want to build, explore,
       and share knowledge together.
     </Lead>
     <P>
@@ -60,9 +60,9 @@ export const advice = (
       <Item>Create a site map and a simple flowchart before coding.</Item>
       <Item>Ask: What does the site do for users? What problem does it solve? What’s the story?</Item>
       <Item>Use a consistent color scheme and readable typography.</Item>
-      <Item>Make it responsive — it must look good on phones.</Item>
+      <Item>Make it responsive,it must look good on phones.</Item>
       <Item>Test for broken links, performance, and accessibility.</Item>
-      <Item>Update regularly — a good site grows with its community.</Item>
+      <Item>Update regularly a good site grows with its community.</Item>
     </Bullets>
 
     <H2>Don’t:</H2>
@@ -70,7 +70,7 @@ export const advice = (
       <Item>Don’t overload pages with animations or dense text.</Item>
       <Item>Don’t use low-contrast colors with hard to read fonts.</Item>
       <Item>Don’t ignore user feedback.</Item>
-      <Item>Don’t copy ideas — be original. Make it yours.</Item>
+      <Item>Don’t copy ideas,be original. Make it yours.</Item>
     </Bullets>
 
     {/* ✅ العنوان والزر الاختياري */}
