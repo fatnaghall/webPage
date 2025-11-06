@@ -9,6 +9,8 @@ export const H2     = ({children}) => <h3 className="h2">{children}</h3>
 export const Badge  = ({children}) => <span className="badge">{children}</span>
 export const Bullets= ({children}) => <ul className="bullets">{children}</ul>
 export const Item   = ({children}) => <li className="bullet">{children}</li>
+import flow1 from '../assets/flowcharts/flow1.jpg';
+import flow2 from '../assets/flowcharts/flow2.jpg';
 
 /* النصوص النهائية */
 export const purpose = (
@@ -45,10 +47,12 @@ export const introduction = (
   </>
 )
 
+/* ✅ قسم Advice مع زر عرض الصور */
+/* ✅ قسم Advice مع الصور داخل نفس الصفحة */
 export const advice = (
   <>
     <Lead>
-      Building a website is like constructing a digital home every element matters. Here are creative, friendly tips:
+      Building a website is like constructing a digital home — every element matters. Here are creative, friendly tips:
     </Lead>
 
     <H2>Do:</H2>
@@ -66,10 +70,92 @@ export const advice = (
       <Item>Don’t overload pages with animations or dense text.</Item>
       <Item>Don’t use low-contrast colors with hard to read fonts.</Item>
       <Item>Don’t ignore user feedback.</Item>
-      <Item>Don’t copy ideas be original. Make it yours.</Item>
+      <Item>Don’t copy ideas — be original. Make it yours.</Item>
     </Bullets>
+
+    {/* ✅ العنوان والزر الاختياري */}
+    <div style={{ marginTop: '25px', textAlign: 'center' }}>
+      <h3 style={{ color: '#fff', fontSize: '1.3rem', marginBottom: '12px' }}>Website Flowcharts</h3>
+      <p style={{ opacity: 0.85, marginBottom: '16px' }}>
+        Visual maps that help you plan the structure and navigation before coding.
+      </p>
+    </div>
+
+    {/* ✅ الصور تظهر مباشرة داخل نفس الـOverlay */}
+    <div
+      className="flow-gallery"
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gap: '16px',
+        justifyItems: 'center',
+        marginTop: '10px',
+      }}
+    >
+      <figure
+        className="flow-figure"
+        style={{
+          background: 'rgba(255,255,255,0.05)',
+          padding: '10px',
+          borderRadius: '12px',
+          maxWidth: '600px',
+        }}
+      >
+        <img
+          src={flow1}
+          alt="Website design flowchart 1"
+          style={{
+            width: '100%',
+            borderRadius: '10px',
+            boxShadow: '0 6px 18px rgba(0,0,0,0.3)',
+          }}
+        />
+        <figcaption
+          style={{
+            textAlign: 'center',
+            marginTop: '6px',
+            fontSize: '0.9rem',
+            opacity: '0.8',
+          }}
+        >
+          Flowchart 1 — Overview
+        </figcaption>
+      </figure>
+
+      <figure
+        className="flow-figure"
+        style={{
+          background: 'rgba(255,255,255,0.05)',
+          padding: '10px',
+          borderRadius: '12px',
+          maxWidth: '600px',
+        }}
+      >
+        <img
+          src={flow2}
+          alt="Website design flowchart 2"
+          style={{
+            width: '100%',
+            borderRadius: '10px',
+            boxShadow: '0 6px 18px rgba(0,0,0,0.3)',
+          }}
+        />
+        <figcaption
+          style={{
+            textAlign: 'center',
+            marginTop: '6px',
+            fontSize: '0.9rem',
+            opacity: '0.8',
+          }}
+        >
+          Flowchart 2 — Design Process
+        </figcaption>
+      </figure>
+    </div>
   </>
-)
+);
+
+
 
 export const activities = (
   <>
