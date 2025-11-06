@@ -59,12 +59,23 @@ export default function ContactModal({ open, onClose }) {
 
             <div className="cm-card">
               <div className="cm-card-title">Location</div>
-              <div>ENSTA — CS Department</div>
+              <div>
+                ENSTA – CS Department (
+                <a
+                  href="https://maps.app.goo.gl/wfe5Kw2LWJCFhde7A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#66aaff", textDecoration: "underline" }}
+                >
+                  View on Google Maps
+                </a>
+                )
+              </div>
             </div>
-          </div>
+          </div> {/* ← إغلاق شبكة البطاقات هنا */}
 
           <p className="cm-note">
-           we going to help you any time!
+            we going to help you any time!
           </p>
         </div>
 
